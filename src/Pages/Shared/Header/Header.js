@@ -1,4 +1,5 @@
 import React from 'react';
+import logo from '../../../assets/logos.png';
 
 const Header = () => {
   return (
@@ -35,8 +36,11 @@ const Header = () => {
             </li>
           </ul>
         </div>
+        <div>
+          <img className='h-16 mx-3' src={logo} alt='' />
+        </div>
         <div className='flex-1'>
-          <a className='btn btn-ghost text-xl'>daisyUI</a>
+          <a className='btn btn-ghost text-xl'>RePhoneX</a>
         </div>
         <div className='flex-none'>
           <div className='dropdown dropdown-end'>
