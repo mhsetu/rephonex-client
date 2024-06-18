@@ -1,5 +1,6 @@
 import React from 'react';
 import logo from '../../../assets/logos.png';
+import HeaderLinks from './HeaderLinks/HeaderLinks';
 
 const Header = () => {
   return (
@@ -43,6 +44,9 @@ const Header = () => {
           <a className='btn btn-ghost text-xl'>RePhoneX</a>
         </div>
         <div className='flex-none'>
+          <div>
+            <HeaderLinks></HeaderLinks>
+          </div>
           <div className='dropdown dropdown-end'>
             <div
               tabIndex={0}
@@ -67,6 +71,7 @@ const Header = () => {
                 <span className='badge badge-sm indicator-item'>8</span>
               </div>
             </div>
+
             <div
               tabIndex={0}
               className='mt-3 z-[1] card card-compact dropdown-content w-52 bg-base-100 shadow'
