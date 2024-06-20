@@ -16,7 +16,7 @@ const PhonesCard = ({ phone }) => {
   } = phone;
   return (
     <div>
-      <div className='card w-80 bg-base-300 shadow-xl mb-5'>
+      <div className='card w-80 bg-base-300 shadow-xl mb-10'>
         <figure>
           <img className='h-[200px]' src={picture} alt='Shoes' />
         </figure>
