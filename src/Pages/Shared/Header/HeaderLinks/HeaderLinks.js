@@ -15,7 +15,7 @@ const HeaderLinks = () => {
     <div>
       <div className='dropdown dropdown-hover dropdown-end'>
         <div tabIndex={0} role='button' className='btn m-1'>
-          Hover
+          Category
         </div>
         <ul
           tabIndex={0}

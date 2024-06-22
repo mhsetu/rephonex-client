@@ -5,6 +5,8 @@ import PhoneDetails from '../../Pages/Home/Phones/PhoneDetails';
 import Categories from '../../Pages/Category/Categories/Categories';
 import Signup from '../../Pages/Signup/Signup/Signup';
 import Login from '../../Pages/Login/Login';
+import DashboardLayout from '../../Layout/DashboardLayout';
+import PhoneSellingList from '../../Pages/Dashboard/PhoneSellingList/PhoneSellingList';
 
 export const router = createBrowserRouter([
   {
@@ -34,6 +36,16 @@ export const router = createBrowserRouter([
         element: <Categories></Categories>,
         loader: ({ params }) =>
           fetch(`http://localhost:5000/category/${params.id}`),
+      },
+    ],
+  },
+  {
+    path: '/dashboard',
+    element: <DashboardLayout></DashboardLayout>,
+    children: [
+      {
+        path: '/dashboard/phonesOnSale',
+        element: <PhoneSellingList></PhoneSellingList>,
       },
     ],
   },

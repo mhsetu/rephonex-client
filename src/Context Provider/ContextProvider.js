@@ -22,7 +22,7 @@ const ContextProvider = ({ children }) => {
   const auth = getAuth(app);
   const [user, setUser] = useState('');
   const [loading, setLoading] = useState(true);
-  const [validUser, setValidUser] = useState({});
+  const [validUser, setValidUser] = useState([]);
 
   useEffect(() => {
     fetch(`http://localhost:5000/users?email=${user?.email}`, {

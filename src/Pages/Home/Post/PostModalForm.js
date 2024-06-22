@@ -10,7 +10,7 @@ const PostModalForm = () => {
   const [category, setCategory] = useState([]);
   // const [value, setValue] = useState(dayjs(new Date()));
   const value = dayjs(new Date());
-  const [reset, setReset] = useState(null);
+  // const [reset, setReset] = useState(null);
   const { user } = useContext(GlobalContext);
   useEffect(() => {
     fetch(`http://localhost:5000/category`)
@@ -41,7 +41,9 @@ const PostModalForm = () => {
       brand,
       category_id: category,
       picture: image,
-      phone_name: phone,
+      phone_name: model,
+      phone_number: phone,
+      email,
       phone_description: description,
       location,
       ram,
@@ -112,7 +114,7 @@ const PostModalForm = () => {
                 <input
                   type='text'
                   name='name'
-                  defaultValue={user.displayName}
+                  defaultValue={user?.displayName}
                   readOnly
                   placeholder='Your Full Name'
                   autocomplete='given-name'
@@ -255,9 +257,6 @@ const PostModalForm = () => {
               <div className='relative mt-2.5'>
                 <div className='form-control w-full max-w-xs'>
                   <select name='category' className='select select-bordered'>
-                    <option disabled selected>
-                      Pick one
-                    </option>
                     {category.map((list) => (
                       <option value={list.category_id} key={list._id}>
                         {list.category_name}
@@ -330,14 +329,12 @@ const PostModalForm = () => {
               </div>
             </div>
           </div>
-          <div className='modal-action mt-10'>
-            <label
-              htmlFor='post'
+          <div className=' mt-10'>
+            <input
               type='submit'
+              value='Submit'
               className='btn block w-full rounded-md bg-indigo-600 px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600'
-            >
-              Submit
-            </label>
+            />
           </div>
           {/* <div className='mt-10'>
             <button
