@@ -12,7 +12,7 @@ const SellerSignupForm = () => {
       email,
       person,
     };
-    fetch(`http://localhost:5000/sellerUser`, {
+    fetch(`http://localhost:5000/User`, {
       method: 'POST',
       headers: {
         'content-type': 'application/json',
@@ -44,7 +44,6 @@ const SellerSignupForm = () => {
     const password = form.password.value;
     const image = form.image.value;
     const radio = form.radio.value;
-  
 
     SignUpEmail(email, password)
       .then((result) => {

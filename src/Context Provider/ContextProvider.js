@@ -22,6 +22,20 @@ const ContextProvider = ({ children }) => {
   const auth = getAuth(app);
   const [user, setUser] = useState('');
   const [loading, setLoading] = useState(true);
+  const [validUser, setValidUser] = useState({});
+
+  useEffect(() => {
+    fetch(`http://localhost:5000/users?email=${user?.email}`, {
+      headers: {
+        'content-type': 'application/json',
+      },
+    })
+      .then((res) => res.json())
+      .then((data) => setValidUser(data));
+    // setLoading(true);
+  }, [user?.email]);
+
+  // console.log(validUser);
 
   const SignUpEmail = (email, password) => {
     return createUserWithEmailAndPassword(auth, email, password);
@@ -62,12 +76,16 @@ const ContextProvider = ({ children }) => {
     Logout,
     googleSignIn,
     loading,
+    setLoading,
     phones,
     setPhones,
     seller,
     setSeller,
     customer,
     setCustomer,
+    validUser,
+    setValidUser,
+    // findEmail,
   };
   return (
     <GlobalContext.Provider value={info}>{children}</GlobalContext.Provider>

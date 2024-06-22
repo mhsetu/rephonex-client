@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 const HeaderLinks = () => {
-  const [open, setOpen] = useState(false);
+  // const [open, setOpen] = useState(false);
   const [menuItems, setMenuItems] = useState([]);
   useEffect(() => {
     fetch(`http://localhost:5000/category`)
@@ -22,8 +22,8 @@ const HeaderLinks = () => {
           className='dropdown-content z-[1] menu p-2 shadow bg-base-200 rounded-md shadow-md w-52'
         >
           {menuItems.map((items) => (
-            <li>
-              <Link>{items.category_name}</Link>
+            <li key={items._id}>
+              <Link to={`/category/${items._id}`}>{items.category_name}</Link>
             </li>
           ))}
         </ul>
