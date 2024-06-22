@@ -7,6 +7,9 @@ import Signup from '../../Pages/Signup/Signup/Signup';
 import Login from '../../Pages/Login/Login';
 import DashboardLayout from '../../Layout/DashboardLayout';
 import PhoneSellingList from '../../Pages/Dashboard/PhoneSellingList/PhoneSellingList';
+import PhonePurchaseList from '../../Pages/Dashboard/PhonePurchaseList/PhonePurchaseList';
+import Dashboard from '../../Pages/Dashboard/Dashboard/Dashboard';
+import AllUsers from '../../Pages/Dashboard/AllUsers/AllUsers';
 
 export const router = createBrowserRouter([
   {
@@ -44,8 +47,21 @@ export const router = createBrowserRouter([
     element: <DashboardLayout></DashboardLayout>,
     children: [
       {
+        path: '/dashboard/allPages',
+        element: <Dashboard></Dashboard>,
+      },
+      {
+        path: '/dashboard/allUser',
+        element: <AllUsers></AllUsers>,
+        loader: () => fetch(`http://localhost:5000/users`),
+      },
+      {
         path: '/dashboard/phonesOnSale',
         element: <PhoneSellingList></PhoneSellingList>,
+      },
+      {
+        path: '/dashboard/phonePurchaseList',
+        element: <PhonePurchaseList></PhonePurchaseList>,
       },
     ],
   },

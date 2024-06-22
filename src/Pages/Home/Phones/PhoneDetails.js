@@ -1,11 +1,14 @@
 import { useQuery } from '@tanstack/react-query';
-import React, { useContext, useEffect, useState } from 'react';
+import React, { createContext, useContext, useEffect, useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import { GlobalContext } from '../../../Context Provider/ContextProvider';
+import Booking from './Booking/Booking';
+
 
 
 const PhoneDetails = () => {
   const { validUser } = useContext(GlobalContext);
+  console.log(validUser);
 
   const {
     ram,
@@ -74,7 +77,14 @@ const PhoneDetails = () => {
             ) : (
               ''
             )}
-            {/* <button className='btn btn-primary mt-8 px-12'>Advertise</button> */}
+
+            {validUser[0]?.person === 'Customer' ? (
+              <label htmlFor='booking' className='btn btn-primary mt-8 px-12'>
+                Book Now
+              </label>
+            ) : (
+              ''
+            )}
           </div>
           <div>
             <img
@@ -85,6 +95,7 @@ const PhoneDetails = () => {
           </div>
         </div>
       </div>
+      <Booking id={_id} phone_name={phone_name}></Booking>
     </div>
   );
 };

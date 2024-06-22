@@ -32,7 +32,7 @@ const ContextProvider = ({ children }) => {
     })
       .then((res) => res.json())
       .then((data) => setValidUser(data));
-    // setLoading(true);
+    // setLoading(false);
   }, [user?.email]);
 
   // console.log(validUser);
