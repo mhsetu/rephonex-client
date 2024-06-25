@@ -13,7 +13,7 @@ const PostModalForm = () => {
   // const [reset, setReset] = useState(null);
   const { user } = useContext(GlobalContext);
   useEffect(() => {
-    fetch(`http://localhost:5000/category`)
+    fetch(`https://rephonex-server.onrender.com/category`)
       .then((res) => res.json())
       .then((data) => setCategory(data));
   }, [category]);
@@ -73,7 +73,7 @@ const PostModalForm = () => {
       description
     );
 
-    fetch(`http://localhost:5000/phones`, {
+    fetch(`https://rephonex-server.onrender.com/phones`, {
       method: 'POST',
       headers: {
         'content-type': 'application/json',

@@ -7,11 +7,14 @@ const PhonePurchaseList = () => {
   const { user } = useContext(GlobalContext);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/meetings?email=${user?.email}`, {
-      headers: {
-        'content-type': 'application/json',
-      },
-    })
+    fetch(
+      `https://rephonex-server.onrender.com/meetings?email=${user?.email}`,
+      {
+        headers: {
+          'content-type': 'application/json',
+        },
+      }
+    )
       .then((res) => res.json())
       .then((data) => setPhoneBookingList(data));
   }, [user?.email]);

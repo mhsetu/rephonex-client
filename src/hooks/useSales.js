@@ -3,7 +3,7 @@ const useSales = (email) => {
   const [isSale, setIsSale] = useState(true);
   const [isSaleLoading, setIsSaleLoading] = useState(true);
   useEffect(() => {
-    fetch(`http://localhost:5000/users/sales/${email}`)
+    fetch(`https://rephonex-server.onrender.com/users/sales/${email}`)
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
@@ -12,7 +12,7 @@ const useSales = (email) => {
         setIsSaleLoading(false);
       });
   }, [email]);
-  return [isSale,isSaleLoading];
+  return [isSale, isSaleLoading];
 };
 
 export default useSales;

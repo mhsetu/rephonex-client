@@ -11,7 +11,7 @@ const Categories = () => {
   // console.log(phones);
   // console.log(category);
   useEffect(() => {
-    fetch(`http://localhost:5000/phones`)
+    fetch(`https://rephonex-server.onrender.com/phones`)
       .then((res) => res.json())
       .then((data) => {
         setPhones(data);

@@ -35,13 +35,13 @@ export const router = createBrowserRouter([
         path: '/details/:id',
         element: <PhoneDetails></PhoneDetails>,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/phones/${params.id}`),
+          fetch(`https://rephonex-server.onrender.com/phones/${params.id}`),
       },
       {
         path: '/category/:id',
         element: <Categories></Categories>,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/category/${params.id}`),
+          fetch(`https://rephonex-server.onrender.com/category/${params.id}`),
       },
     ],
   },
@@ -56,7 +56,7 @@ export const router = createBrowserRouter([
             <AllUsers></AllUsers>
           </AdminRoute>
         ),
-        loader: () => fetch(`http://localhost:5000/users`),
+        loader: () => fetch(`https://rephonex-server.onrender.com/users`),
       },
       {
         path: '/dashboard/phonesOnSale',

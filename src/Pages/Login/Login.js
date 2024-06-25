@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { GlobalContext } from '../../Context Provider/ContextProvider';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 // import logo from '../../assets/logos.png';
 
 const Login = () => {
@@ -64,14 +64,6 @@ const Login = () => {
                 >
                   Password
                 </label>
-                <div className='text-sm'>
-                  <a
-                    href='#'
-                    className='font-semibold text-indigo-600 hover:text-indigo-500'
-                  >
-                    Forgot password?
-                  </a>
-                </div>
               </div>
               <div className='mt-2'>
                 <input
@@ -97,12 +89,9 @@ const Login = () => {
 
           <p className='mt-10 text-center text-sm text-gray-500'>
             Not a member?
-            <a
-              href='#'
-              className='font-semibold leading-6 text-indigo-600 hover:text-indigo-500'
-            >
-              Start a 14 day free trial
-            </a>
+            <span className='font-semibold leading-6 text-indigo-600 hover:text-indigo-500'>
+              <Link to='signup'>Signup</Link>
+            </span>
           </p>
         </div>
       </div>

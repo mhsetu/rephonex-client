@@ -12,7 +12,7 @@ const SellerSignupForm = () => {
       email,
       person,
     };
-    fetch(`http://localhost:5000/User`, {
+    fetch(`https://rephonex-server.onrender.com/User`, {
       method: 'POST',
       headers: {
         'content-type': 'application/json',
@@ -26,7 +26,7 @@ const SellerSignupForm = () => {
       email,
       person: 'Customer',
     };
-    fetch(`http://localhost:5000/User`, {
+    fetch(`https://rephonex-server.onrender.com/User`, {
       method: 'POST',
       headers: {
         'content-type': 'application/json',

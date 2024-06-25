@@ -8,7 +8,7 @@ const PhoneSellingList = () => {
   const { user } = useContext(GlobalContext);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/phone?email=${user?.email}`, {
+    fetch(`https://rephonex-server.onrender.com/phone?email=${user?.email}`, {
       headers: {
         'content-type': 'application/json',
       },
@@ -20,7 +20,7 @@ const PhoneSellingList = () => {
   console.log(phones);
 
   const handleDeleteProduct = (id) => {
-    fetch(`http://localhost:5000/phones/${id}`, {
+    fetch(`https://rephonex-server.onrender.com/phones/${id}`, {
       method: 'DELETE',
       headers: {
         'content-type': 'application/json',
