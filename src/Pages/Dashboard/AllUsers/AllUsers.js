@@ -1,9 +1,34 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
+import { GlobalContext } from '../../../Context Provider/ContextProvider';
+import toast, { Toaster } from 'react-hot-toast';
 
 const AllUsers = () => {
   const allUser = useLoaderData();
+  const { validUser, user } = useContext(GlobalContext);
+
   console.log(allUser);
+  console.log(validUser);
+
+  const handleMakeAdmin = (id) => {
+    console.log(id);
+    fetch(`http://localhost:5000/users/admin/${id}`, {
+      method: 'PUT',
+      headers: {
+        'content-type': 'application/json',
+      },
+      //   body: JSON.stringify(id),
+      //   body: JSON.stringify({ email: user?.email }),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        if (data.modifiedCount > 0) {
+          toast.success('Make admin Successfully');
+          //   refetch();
+        }
+      });
+  };
 
   return (
     <div className='mx-8'>
@@ -19,15 +44,23 @@ const AllUsers = () => {
             </tr>
           </thead>
           <tbody>
-            {allUser.map((user, index) => (
+            <Toaster />
+            {allUser.map((users, index) => (
               <tr>
                 <th>{index + 1}</th>
-                <td>{user.name}</td>
-                <td>{user.email}</td>
+                <td>{users.name}</td>
+                <td>{users.email}</td>
                 <td>
-                  <button className='btn btn-sm btn-primary'>Admin</button>
+                  {users?.role !== 'admin' && (
+                    <button
+                      onClick={() => handleMakeAdmin(users._id)}
+                      className='btn btn-primary btn-xs'
+                    >
+                      Make Admin
+                    </button>
+                  )}
                 </td>
-                <td>{user.person}</td>
+                <td>{users.person}</td>
               </tr>
             ))}
           </tbody>

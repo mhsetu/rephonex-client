@@ -7,7 +7,7 @@ const PhonePurchaseList = () => {
   const { user } = useContext(GlobalContext);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/meeting?email=${user?.email}`, {
+    fetch(`http://localhost:5000/meetings?email=${user?.email}`, {
       headers: {
         'content-type': 'application/json',
       },
@@ -20,9 +20,6 @@ const PhonePurchaseList = () => {
 
   return (
     <div className='mx-8 mt-8'>
-      <h2 className='text-center text-4xl font-semibold my-3'>
-        Phone Purchase List
-      </h2>
       <div className='overflow-x-auto'>
         <table className='table table-zebra w-full'>
           <thead>

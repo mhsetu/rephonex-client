@@ -10,6 +10,9 @@ import PhoneSellingList from '../../Pages/Dashboard/PhoneSellingList/PhoneSellin
 import PhonePurchaseList from '../../Pages/Dashboard/PhonePurchaseList/PhonePurchaseList';
 import Dashboard from '../../Pages/Dashboard/Dashboard/Dashboard';
 import AllUsers from '../../Pages/Dashboard/AllUsers/AllUsers';
+import AdminRoute from '../AdminRoute/AdminRoute';
+import SalesRoute from '../SalesRoute/SalesRoute';
+import PrivateRoute from '../PrivateRoute/PrivateRoute';
 
 export const router = createBrowserRouter([
   {
@@ -47,12 +50,12 @@ export const router = createBrowserRouter([
     element: <DashboardLayout></DashboardLayout>,
     children: [
       {
-        path: '/dashboard/allPages',
-        element: <Dashboard></Dashboard>,
-      },
-      {
         path: '/dashboard/allUser',
-        element: <AllUsers></AllUsers>,
+        element: (
+          <AdminRoute>
+            <AllUsers></AllUsers>
+          </AdminRoute>
+        ),
         loader: () => fetch(`http://localhost:5000/users`),
       },
       {

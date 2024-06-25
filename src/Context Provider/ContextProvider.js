@@ -15,14 +15,13 @@ export const GlobalContext = createContext();
 
 const ContextProvider = ({ children }) => {
   const [phones, setPhones] = useState([]);
-  const [seller, setSeller] = useState('');
-  const [customer, setCustomer] = useState('');
 
   const googleProvider = new GoogleAuthProvider();
   const auth = getAuth(app);
   const [user, setUser] = useState('');
   const [loading, setLoading] = useState(true);
   const [validUser, setValidUser] = useState([]);
+  // console.log(validUser);
 
   useEffect(() => {
     fetch(`http://localhost:5000/users?email=${user?.email}`, {
@@ -79,10 +78,6 @@ const ContextProvider = ({ children }) => {
     setLoading,
     phones,
     setPhones,
-    seller,
-    setSeller,
-    customer,
-    setCustomer,
     validUser,
     setValidUser,
     // findEmail,

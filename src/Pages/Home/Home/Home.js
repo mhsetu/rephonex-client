@@ -19,7 +19,7 @@ const Home = () => {
               <Post></Post>
             </div>
           )}
-          <Advertisement></Advertisement>
+          {/* <Advertisement></Advertisement> */}
         </div>
         <div className='col-span-3'>
           <Phones></Phones>

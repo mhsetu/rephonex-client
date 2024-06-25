@@ -4,8 +4,6 @@ import { useLoaderData } from 'react-router-dom';
 import { GlobalContext } from '../../../Context Provider/ContextProvider';
 import Booking from './Booking/Booking';
 
-
-
 const PhoneDetails = () => {
   const { validUser } = useContext(GlobalContext);
   console.log(validUser);
@@ -72,11 +70,11 @@ const PhoneDetails = () => {
                 <p className='mt-2 text-sm text-gray-500'>{location}</p>
               </div>
             </dl>
-            {validUser[0]?.person === 'Seller' ? (
+            {/* {validUser[0]?.person === 'Seller' ? (
               <button className='btn btn-primary mt-8 px-12'>Advertise</button>
             ) : (
               ''
-            )}
+            )} */}
 
             {validUser[0]?.person === 'Customer' ? (
               <label htmlFor='booking' className='btn btn-primary mt-8 px-12'>

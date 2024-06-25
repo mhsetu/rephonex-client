@@ -3,7 +3,7 @@ import { GlobalContext } from '../../../Context Provider/ContextProvider';
 import { useNavigate } from 'react-router-dom';
 
 const SellerSignupForm = () => {
-  const { setSeller, setCustomer, SignUpEmail, updateProfileInfo, setUser } =
+  const { SignUpEmail, updateProfileInfo, setUser, googleSignIn } =
     useContext(GlobalContext);
   const navigate = useNavigate();
   const sellerInfo = (name, email, person) => {
@@ -20,21 +20,33 @@ const SellerSignupForm = () => {
       body: JSON.stringify(userInfo),
     });
   };
+  const customerInfo = (name, email) => {
+    const userInfo = {
+      name,
+      email,
+      person: 'Customer',
+    };
+    fetch(`http://localhost:5000/User`, {
+      method: 'POST',
+      headers: {
+        'content-type': 'application/json',
+      },
+      body: JSON.stringify(userInfo),
+    });
+  };
 
-  // const CustomerInfo = (name, email, person) => {
-  //   const userInfo = {
-  //     name,
-  //     email,
-  //     person,
-  //   };
-  //   fetch(`http://localhost:5000/customerUser`, {
-  //     method: 'POST',
-  //     headers: {
-  //       'content-type': 'application/json',
-  //     },
-  //     body: JSON.stringify(userInfo),
-  //   });
-  // };
+  const googleLogIn = () => {
+    googleSignIn()
+      .then((result) => {
+        const user = result.user;
+        customerInfo(user?.displayName, user?.email);
+        setUser(user);
+        navigate('/');
+      })
+      .catch((err) => {
+        console.error(err.message);
+      });
+  };
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -65,7 +77,7 @@ const SellerSignupForm = () => {
   };
 
   return (
-    <div className='mx-8'>
+    <div className='mx-8 mb-12'>
       <form onSubmit={handleSubmit}>
         <div className='space-y-5'>
           <div className='mt-10'>
@@ -166,8 +178,18 @@ const SellerSignupForm = () => {
           </div>
         </div>
 
-        <div className='my-6'>
-          <input type='submit' className='btn btn-primary' />
+        <div className='flex'>
+          <div className='my-6'>
+            <input type='submit' className='btn btn-primary' />
+          </div>
+          <div className='my-6 ml-3'>
+            <button
+              onClick={googleLogIn}
+              className='btn btn-success btn-outline'
+            >
+              Google SignIn
+            </button>
+          </div>
         </div>
       </form>
     </div>
