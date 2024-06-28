@@ -5,12 +5,12 @@ import { initializeApp } from 'firebase/app';
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: 'AIzaSyD_DwwcL2S_NPKg1-nST9SwttGkAcYaQ24',
-  authDomain: 'rephonex-client.firebaseapp.com',
-  projectId: 'rephonex-client',
-  storageBucket: 'rephonex-client.appspot.com',
-  messagingSenderId: '722207773989',
-  appId: '1:722207773989:web:9bea3dd715d4553f8cb6cc',
+  apiKey: process.env.REACT_APP_apiKey,
+  authDomain: process.env.REACT_APP_authDomain,
+  projectId: process.env.REACT_APP_projectId,
+  storageBucket: process.env.REACT_APP_storageBucket,
+  messagingSenderId: process.env.REACT_APP_messagingSenderId,
+  appId: process.env.REACT_APP_appId,
 };
 
 // Initialize Firebase

@@ -64,7 +64,7 @@ const ContextProvider = ({ children }) => {
     return () => {
       unsubscribe();
     };
-  }, []);
+  });
 
   const info = {
     SignUpEmail,

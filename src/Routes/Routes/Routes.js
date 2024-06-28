@@ -8,11 +8,11 @@ import Login from '../../Pages/Login/Login';
 import DashboardLayout from '../../Layout/DashboardLayout';
 import PhoneSellingList from '../../Pages/Dashboard/PhoneSellingList/PhoneSellingList';
 import PhonePurchaseList from '../../Pages/Dashboard/PhonePurchaseList/PhonePurchaseList';
-import Dashboard from '../../Pages/Dashboard/Dashboard/Dashboard';
+
 import AllUsers from '../../Pages/Dashboard/AllUsers/AllUsers';
 import AdminRoute from '../AdminRoute/AdminRoute';
-import SalesRoute from '../SalesRoute/SalesRoute';
-import PrivateRoute from '../PrivateRoute/PrivateRoute';
+
+import Blogs from '../../Pages/Blogs/Blogs';
 
 export const router = createBrowserRouter([
   {
@@ -30,6 +30,10 @@ export const router = createBrowserRouter([
       {
         path: '/signup',
         element: <Signup></Signup>,
+      },
+      {
+        path: '/blogs',
+        element: <Blogs></Blogs>,
       },
       {
         path: '/details/:id',

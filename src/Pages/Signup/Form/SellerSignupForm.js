@@ -87,8 +87,7 @@ const SellerSignupForm = () => {
                   type='radio'
                   name='radio'
                   value='Seller'
-                  className='radio checked:bg-blue-500 '
-                  checked
+                  className='radio'
                 />
                 <span className='label-text'>Seller</span>
               </label>
@@ -99,8 +98,7 @@ const SellerSignupForm = () => {
                   type='radio'
                   name='radio'
                   value='Customer'
-                  className='radio checked:bg-blue-500'
-                  checked
+                  className='radio'
                 />
                 <span className='label-text'>Customer</span>
               </label>
@@ -110,10 +108,7 @@ const SellerSignupForm = () => {
           <div className='border-b border-gray-900/10 pb-12'>
             <div className='mt-3 from-control'>
               <div>
-                <label
-                  for='first-name'
-                  className='block text-sm font-medium leading-6 text-gray-900'
-                >
+                <label className='block text-sm font-medium leading-6 text-gray-900'>
                   Name
                 </label>
                 <div className='mt-2'>
@@ -126,10 +121,7 @@ const SellerSignupForm = () => {
                 </div>
               </div>
               <div>
-                <label
-                  for='first-name'
-                  className='block text-sm font-medium leading-6 text-gray-900'
-                >
+                <label className='block text-sm font-medium leading-6 text-gray-900'>
                   Photo
                 </label>
                 <div className='mt-2'>
@@ -143,10 +135,7 @@ const SellerSignupForm = () => {
               </div>
 
               <div className='mt-3'>
-                <label
-                  for='email'
-                  className='block text-sm font-medium leading-6 text-gray-900'
-                >
+                <label className='block text-sm font-medium leading-6 text-gray-900'>
                   Email address
                 </label>
                 <div className='mt-2'>
@@ -159,10 +148,7 @@ const SellerSignupForm = () => {
                 </div>
               </div>
               <div className='mt-3'>
-                <label
-                  for='email'
-                  className='block text-sm font-medium leading-6 text-gray-900'
-                >
+                <label className='block text-sm font-medium leading-6 text-gray-900'>
                   Password
                 </label>
                 <div className='mt-2'>

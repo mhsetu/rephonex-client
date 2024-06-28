@@ -19,7 +19,7 @@ const HeaderLinks = () => {
         </div>
         <ul
           tabIndex={0}
-          className='dropdown-content z-[1] menu p-2 shadow bg-base-200 rounded-md shadow-md w-52'
+          className='dropdown-content z-[1] menu p-2 bg-base-200 rounded-md shadow-md w-52'
         >
           {menuItems.map((items) => (
             <li key={items._id}>

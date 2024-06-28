@@ -1,11 +1,11 @@
-import React, { useContext, useEffect, useState } from 'react';
-import { Link, useLoaderData } from 'react-router-dom';
+import React, { useContext } from 'react';
+import { useLoaderData } from 'react-router-dom';
 import { GlobalContext } from '../../../Context Provider/ContextProvider';
 import toast, { Toaster } from 'react-hot-toast';
 
 const AllUsers = () => {
   const allUser = useLoaderData();
-  const { validUser, user } = useContext(GlobalContext);
+  const { validUser } = useContext(GlobalContext);
 
   console.log(allUser);
   console.log(validUser);

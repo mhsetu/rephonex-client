@@ -12,6 +12,9 @@ const Header = () => {
       <Link to='/'>
         <button className='btn btn-ghost'>Home</button>
       </Link>
+      <Link to='/blogs'>
+        <button className='btn btn-ghost'>Blog</button>
+      </Link>
     </>
   );
 
@@ -54,12 +57,7 @@ const Header = () => {
             className={`${user?.uid ? 'flex place-items-center' : 'hidden'}`}
           >
             {menu}
-            {/* <Link to='/dashboard/phonesOnSale'>
-              <button className='btn btn-ghost'>On Sale</button>
-            </Link>
-            <Link to='/dashboard/phonePurchaseList'>
-              <button className='btn btn-ghost'>Purchases</button>
-            </Link> */}
+
             <Link to='/dashboard'>
               <button className='btn btn-ghost'>Dashboard</button>
             </Link>

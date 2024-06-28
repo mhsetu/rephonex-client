@@ -4,7 +4,7 @@ import dayjs from 'dayjs';
 import { DemoContainer } from '@mui/x-date-pickers/internals/demo';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
-import { DateField } from '@mui/x-date-pickers/DateField';
+
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 
 const BookModal = ({ id, phone_name }) => {
@@ -62,10 +62,7 @@ const BookModal = ({ id, phone_name }) => {
         >
           <div className='grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2'>
             <div>
-              <label
-                for='first-name'
-                className='block text-sm font-semibold leading-6 text-gray-900'
-              >
+              <label className='block text-sm font-semibold leading-6 text-gray-900'>
                 Name
               </label>
               <div className='mt-2.5'>
@@ -179,14 +176,6 @@ const BookModal = ({ id, phone_name }) => {
               className='btn block w-full rounded-md bg-indigo-600 px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600'
             />
           </div>
-          {/* <div className='mt-10'>
-            <button
-              type='submit'
-              className='block w-full rounded-md bg-indigo-600 px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600'
-            >
-              Submit
-            </button>
-          </div> */}
         </form>
       </div>
     </div>

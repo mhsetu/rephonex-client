@@ -4,15 +4,11 @@ import { Link } from 'react-router-dom';
 const PhonesCard = ({ phone }) => {
   const {
     _id,
-    brand,
-    location,
-    orginal_price,
+
     phone_name,
     picture,
     posted_date,
     resale_price,
-    seller_name,
-    useage_duration,
   } = phone;
   return (
     <div>

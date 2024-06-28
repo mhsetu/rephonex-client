@@ -1,9 +1,10 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext } from 'react';
 import Banner from '../Banner/Banner';
-import Advertisement from '../../Shared/Advertisement/Advertisement';
+
 import Phones from '../Phones/Phones';
 import Post from '../Post/Post';
 import { GlobalContext } from '../../../Context Provider/ContextProvider';
+import Advertisement from '../../Shared/Advertisement/Advertisement';
 
 const Home = () => {
   const { validUser } = useContext(GlobalContext);
@@ -11,15 +12,14 @@ const Home = () => {
   return (
     <div>
       <Banner></Banner>
-
-      <div className='grid grid-cols-4 mt-5 mx-8'>
+      <div className='grid grid-cols-4 mt-5 lg:mx-8'>
         <div className='col-span-1'>
           {validUser[0]?.person === 'Seller' && (
             <div className='mx-8 mt-8 mb-14'>
               <Post></Post>
             </div>
           )}
-          {/* <Advertisement></Advertisement> */}
+          <Advertisement></Advertisement>
         </div>
         <div className='col-span-3'>
           <Phones></Phones>

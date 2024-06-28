@@ -1,5 +1,4 @@
-import { useQuery } from '@tanstack/react-query';
-import React, { createContext, useContext, useEffect, useState } from 'react';
+import React, { useContext } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import { GlobalContext } from '../../../Context Provider/ContextProvider';
 import Booking from './Booking/Booking';
@@ -18,7 +17,6 @@ const PhoneDetails = () => {
     phone_name,
     phone_description,
     picture,
-    posted_date,
     resale_price,
     seller_name,
     usage_duration,
@@ -34,7 +32,7 @@ const PhoneDetails = () => {
             </h2>
             <p className='mt-4 text-gray-500'>{phone_description}</p>
 
-            <dl className='mt-16 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 sm:gap-y-16 lg:gap-x-8'>
+            <div className='mt-16 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 sm:gap-y-16 lg:gap-x-8'>
               <div className='border-t border-gray-200 pt-4'>
                 <p className='font-medium text-gray-900'>{brand}</p>
                 <p className='mt-2 text-sm text-gray-500'>
@@ -69,12 +67,7 @@ const PhoneDetails = () => {
                 <p className='font-medium text-gray-900'>Location of owner </p>
                 <p className='mt-2 text-sm text-gray-500'>{location}</p>
               </div>
-            </dl>
-            {/* {validUser[0]?.person === 'Seller' ? (
-              <button className='btn btn-primary mt-8 px-12'>Advertise</button>
-            ) : (
-              ''
-            )} */}
+            </div>
 
             {validUser[0]?.person === 'Customer' ? (
               <label htmlFor='booking' className='btn btn-primary mt-8 px-12'>

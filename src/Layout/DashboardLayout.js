@@ -1,11 +1,11 @@
 import React, { useContext } from 'react';
 import Header from '../Pages/Shared/Header/Header';
-import Dashboard from '../Pages/Dashboard/PhoneSellingList/PhoneSellingList';
 import { Link, Outlet } from 'react-router-dom';
 import { GlobalContext } from '../Context Provider/ContextProvider';
 import useAdmin from '../hooks/useAdmin';
 import useSales from '../hooks/useSales';
 import useCustomer from '../hooks/useCustomer';
+import Footer from '../Pages/Shared/Footer/Footer';
 
 const DashboardLayout = () => {
   const { user } = useContext(GlobalContext);
@@ -24,14 +24,7 @@ const DashboardLayout = () => {
           className='drawer-toggle'
         />
         <div className='drawer-content '>
-          {/* Page content here */}
           <Outlet></Outlet>
-          {/* <label
-            htmlFor='dashboard-drawer'
-            className='btn btn-primary drawer-button lg:hidden'
-          >
-            Open drawer
-          </label> */}
         </div>
         <div className='drawer-side'>
           <label
@@ -40,7 +33,6 @@ const DashboardLayout = () => {
             className='drawer-overlay'
           ></label>
           <ul className='menu mx-8 p-4 w-80 min-h-full bg-base-200 text-base-content'>
-            {/* Sidebar content here */}
             {isSale && (
               <li className='mb-2'>
                 <Link to='/dashboard/phonesOnSale'>On Sale</Link>
@@ -54,9 +46,6 @@ const DashboardLayout = () => {
               </li>
             )}
 
-            {/* <li>
-              <Link to='/dashboard/allUser'>Users</Link>
-            </li> */}
             {isAdmin && (
               <li>
                 <Link to='/dashboard/allUser'>Users</Link>
@@ -65,6 +54,7 @@ const DashboardLayout = () => {
           </ul>
         </div>
       </div>
+      <Footer></Footer>
     </div>
   );
 };
