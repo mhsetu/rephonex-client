@@ -14,7 +14,7 @@ const PhonesCard = ({ phone }) => {
     <div>
       <div className='card w-80 bg-base-300 shadow-xl mb-10'>
         <figure>
-          <img className='h-[200px]' src={picture} alt='Shoes' />
+          <img className='h-[200px]' src={picture} alt='' />
         </figure>
         <div className='card-body'>
           <h2 className='card-title'>{phone_name}</h2>

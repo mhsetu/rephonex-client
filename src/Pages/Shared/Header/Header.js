@@ -44,6 +44,31 @@ const Header = () => {
   return (
     <div className='mx-8 mt-8'>
       <div className='navbar bg-base-100 shadow-md'>
+        <label
+          // id='dashboard-drawer'
+          htmlFor='dashboard-drawer'
+          // type='checkbox'
+          className='btn btn-square btn-ghost drawer-button '
+        >
+          <svg
+            xmlns='http://www.w3.org/2000/svg'
+            fill='none'
+            viewBox='0 0 24 24'
+            className='inline-block h-5 w-5 stroke-current'
+          >
+            <path
+              strokeLinecap='round'
+              strokeLinejoin='round'
+              strokeWidth='2'
+              d='M4 6h16M4 12h16M4 18h16'
+            ></path>
+          </svg>
+        </label>
+        <label
+          htmlFor='dashboard-drawer'
+          aria-label='close sidebar'
+          className='drawer-overlay'
+        ></label>
         <div>
           <img className='h-16 mx-3' src={logo} alt='' />
         </div>
@@ -76,10 +101,7 @@ const Header = () => {
                       className='btn btn-ghost btn-circle avatar'
                     >
                       <div className='w-10 rounded-full'>
-                        <img
-                          alt='Tailwind CSS Navbar component'
-                          src={user.photoURL}
-                        />
+                        <img alt='' src={user.photoURL} />
                       </div>
                     </div>
                     <ul

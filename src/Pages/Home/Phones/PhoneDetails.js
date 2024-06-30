@@ -1,12 +1,19 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import { GlobalContext } from '../../../Context Provider/ContextProvider';
 import Booking from './Booking/Booking';
+import useCustomer from '../../../hooks/useCustomer';
+import useSales from '../../../hooks/useSales';
+import { Toaster } from 'react-hot-toast';
 
 const PhoneDetails = () => {
-  const { validUser } = useContext(GlobalContext);
-  console.log(validUser);
-
+  const { user, handleAdvertise, phoneBookingList, cellPhones } =
+    useContext(GlobalContext);
+  const [phones, setPhones] = useState([]);
+  // console.log(validUser);
+  console.log(phoneBookingList);
+  const [isCustomer] = useCustomer(user?.email);
+  const [isSale] = useSales(user?.email);
   const {
     ram,
     camera,
@@ -22,6 +29,19 @@ const PhoneDetails = () => {
     usage_duration,
   } = useLoaderData();
 
+  // console.log(cellPhones);
+  useEffect(() => {
+    fetch(`https://rephonex-server.onrender.com/phone?email=${user?.email}`, {
+      headers: {
+        'content-type': 'application/json',
+      },
+    })
+      .then((res) => res.json())
+      .then((data) => setPhones(data));
+  }, [user?.email, setPhones]);
+
+  // const phone = cellPhones.map((phone) => phone.email === user?.email);
+  console.log(phones);
   return (
     <div>
       <div className='bg-white mt-5'>
@@ -69,20 +89,27 @@ const PhoneDetails = () => {
               </div>
             </div>
 
-            {validUser[0]?.person === 'Customer' ? (
+            {isCustomer && (
               <label htmlFor='booking' className='btn btn-primary mt-8 px-12'>
                 Book Now
               </label>
-            ) : (
-              ''
             )}
+            {isSale &&
+              phones.map(
+                (phone) =>
+                  phone?._id === _id && (
+                    <button
+                      onClick={() => handleAdvertise(_id)}
+                      className='btn btn-primary mt-8 px-12'
+                    >
+                      Advertise
+                    </button>
+                  )
+              )}
           </div>
+          <Toaster position='top-right' reverseOrder={false} />
           <div>
-            <img
-              src={picture}
-              alt='Walnut card tray with white powder coated steel divider and 3 punchout holes.'
-              className='rounded-lg bg-gray-100'
-            />
+            <img src={picture} alt='' className='rounded-lg bg-gray-100' />
           </div>
         </div>
       </div>

@@ -7,7 +7,7 @@ import { GlobalContext } from '../../../Context Provider/ContextProvider';
 import Advertisement from '../../Shared/Advertisement/Advertisement';
 
 const Home = () => {
-  const { validUser } = useContext(GlobalContext);
+  const { validUser, advertise } = useContext(GlobalContext);
 
   return (
     <div>
@@ -19,7 +19,7 @@ const Home = () => {
               <Post></Post>
             </div>
           )}
-          <Advertisement></Advertisement>
+          {advertise && <Advertisement></Advertisement>}
         </div>
         <div className='col-span-3'>
           <Phones></Phones>

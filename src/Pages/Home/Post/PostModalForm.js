@@ -114,7 +114,7 @@ const PostModalForm = () => {
                   defaultValue={user?.displayName}
                   readOnly
                   placeholder='Your Full Name'
-                  autocomplete='given-name'
+                  autoComplete='given-name'
                   className='block input input-bordered w-full rounded-md px-3.5 py-2 text-gray-900 shadow-sm  placeholder:text-gray-400  sm:text-sm sm:leading-6'
                 />
               </div>
@@ -128,7 +128,7 @@ const PostModalForm = () => {
                   type='text'
                   name='phone'
                   placeholder='Your Phone Number'
-                  autocomplete='family-name'
+                  autoComplete='family-name'
                   className='block input input-bordered w-full rounded-md px-3.5 py-2 text-gray-900 shadow-sm  placeholder:text-gray-400  sm:text-sm sm:leading-6'
                 />
               </div>
@@ -201,7 +201,7 @@ const PostModalForm = () => {
                   type='text'
                   name='image'
                   placeholder='Phone Photo URL'
-                  autocomplete='email'
+                  autoComplete='email'
                   className='block input input-bordered w-full rounded-md  px-3.5 py-2 text-gray-900 shadow-sm  placeholder:text-gray-400  sm:text-sm sm:leading-6'
                 />
               </div>
@@ -215,7 +215,7 @@ const PostModalForm = () => {
                   type='text'
                   name='ram'
                   placeholder='Phone RAM'
-                  autocomplete='email'
+                  autoComplete='email'
                   className='block input input-bordered w-full rounded-md  px-3.5 py-2 text-gray-900 shadow-sm  placeholder:text-gray-400  sm:text-sm sm:leading-6'
                 />
               </div>
@@ -287,7 +287,7 @@ const PostModalForm = () => {
                   type='text'
                   name='original_price'
                   placeholder='Original Price'
-                  autocomplete='given-price'
+                  autoComplete='given-price'
                   className='block input input-bordered w-full rounded-md px-3.5 py-2 text-gray-900 shadow-sm  placeholder:text-gray-400  sm:text-sm sm:leading-6'
                 />
               </div>

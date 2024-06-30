@@ -10,6 +10,7 @@ import {
 } from 'firebase/auth';
 import React, { createContext, useEffect, useState } from 'react';
 import app from '../Firebase/firebase.config';
+import toast from 'react-hot-toast';
 
 export const GlobalContext = createContext();
 
@@ -21,7 +22,8 @@ const ContextProvider = ({ children }) => {
   const [user, setUser] = useState('');
   const [loading, setLoading] = useState(true);
   const [validUser, setValidUser] = useState([]);
-  // console.log(validUser);
+  const [advertise, setAdvertise] = useState([]);
+  const [cellPhones, setCellPhones] = useState([]);
 
   useEffect(() => {
     fetch(`https://rephonex-server.onrender.com/users?email=${user?.email}`, {
@@ -33,8 +35,6 @@ const ContextProvider = ({ children }) => {
       .then((data) => setValidUser(data));
     // setLoading(false);
   }, [user?.email]);
-
-  // console.log(validUser);
 
   const SignUpEmail = (email, password) => {
     return createUserWithEmailAndPassword(auth, email, password);
@@ -66,6 +66,30 @@ const ContextProvider = ({ children }) => {
     };
   });
 
+  const handleAdvertise = (id) => {
+    // const { _id } = value;
+
+    fetch(`http://localhost:5000/phones/${id}`)
+      .then((res) => res.json())
+      .then((data) => {
+        fetch(`http://localhost:5000/advertises`, {
+          method: 'POST',
+          headers: {
+            'content-type': 'application/json',
+          },
+          body: JSON.stringify(data),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            console.log(data);
+            if (data.acknowledged) {
+              toast.success('Placed Advertisement Successfully');
+            }
+          });
+        console.log(data);
+      });
+  };
+
   const info = {
     SignUpEmail,
     SignInEmail,
@@ -80,7 +104,10 @@ const ContextProvider = ({ children }) => {
     setPhones,
     validUser,
     setValidUser,
-    // findEmail,
+    handleAdvertise,
+    advertise,
+    setAdvertise,
+    cellPhones, setCellPhones
   };
   return (
     <GlobalContext.Provider value={info}>{children}</GlobalContext.Provider>

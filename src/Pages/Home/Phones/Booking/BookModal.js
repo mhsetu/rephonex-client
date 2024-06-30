@@ -72,7 +72,7 @@ const BookModal = ({ id, phone_name }) => {
                   defaultValue={user?.displayName}
                   readOnly
                   placeholder='Your Full Name'
-                  autocomplete='given-name'
+                  autoComplete='given-name'
                   className='block input input-bordered w-full rounded-md px-3.5 py-2 text-gray-900 shadow-sm  placeholder:text-gray-400  sm:text-sm sm:leading-6'
                 />
               </div>
@@ -86,7 +86,7 @@ const BookModal = ({ id, phone_name }) => {
                   type='text'
                   name='phone'
                   placeholder='Your Phone Number'
-                  autocomplete='family-name'
+                  autoComplete='family-name'
                   className='block input input-bordered w-full rounded-md px-3.5 py-2 text-gray-900 shadow-sm  placeholder:text-gray-400  sm:text-sm sm:leading-6'
                 />
               </div>

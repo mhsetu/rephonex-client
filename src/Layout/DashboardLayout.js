@@ -17,7 +17,7 @@ const DashboardLayout = () => {
   return (
     <div>
       <Header></Header>
-      <div className='drawer lg:drawer-open'>
+      <div className='drawer drawer-end'>
         <input
           id='dashboard-drawer'
           type='checkbox'
@@ -26,13 +26,14 @@ const DashboardLayout = () => {
         <div className='drawer-content '>
           <Outlet></Outlet>
         </div>
+
         <div className='drawer-side'>
           <label
             htmlFor='dashboard-drawer'
             aria-label='close sidebar'
             className='drawer-overlay'
           ></label>
-          <ul className='menu mx-8 p-4 w-80 min-h-full bg-base-200 text-base-content'>
+          <ul className='menu p-4 w-80 min-h-full bg-base-200 text-base-content'>
             {isSale && (
               <li className='mb-2'>
                 <Link to='/dashboard/phonesOnSale'>On Sale</Link>

@@ -3,8 +3,8 @@ import { GlobalContext } from '../../../Context Provider/ContextProvider';
 import { Link } from 'react-router-dom';
 
 const PhonePurchaseList = () => {
-  const [phoneBookingList, setPhoneBookingList] = useState([]);
   const { user } = useContext(GlobalContext);
+  const [phoneBookingList, setPhoneBookingList] = useState([]);
 
   useEffect(() => {
     fetch(
@@ -17,7 +17,7 @@ const PhonePurchaseList = () => {
     )
       .then((res) => res.json())
       .then((data) => setPhoneBookingList(data));
-  }, [user?.email]);
+  }, [user?.email, setPhoneBookingList]);
 
   console.log(phoneBookingList);
 

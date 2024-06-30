@@ -1,11 +1,10 @@
-import { useContext, useEffect, useState } from 'react';
+import { useContext, useEffect } from 'react';
 import { GlobalContext } from '../../../Context Provider/ContextProvider';
 import { Link } from 'react-router-dom';
 import toast, { Toaster } from 'react-hot-toast';
 
 const PhoneSellingList = () => {
-  const [phones, setPhones] = useState([]);
-  const { user } = useContext(GlobalContext);
+  const { user, cellPhones, setCellPhones } = useContext(GlobalContext);
 
   useEffect(() => {
     fetch(`https://rephonex-server.onrender.com/phone?email=${user?.email}`, {
@@ -14,13 +13,26 @@ const PhoneSellingList = () => {
       },
     })
       .then((res) => res.json())
-      .then((data) => setPhones(data));
-  }, [user?.email]);
+      .then((data) => setCellPhones(data));
+  }, [user?.email, setCellPhones]);
 
-  console.log(phones);
+  console.log(cellPhones);
 
   const handleDeleteProduct = (id) => {
-    fetch(`https://rephonex-server.onrender.com/phones/${id}`, {
+    fetch(`http://localhost:5000/phones/${id}`, {
+      method: 'DELETE',
+      headers: {
+        'content-type': 'application/json',
+      },
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        if (data.acknowledged) {
+          toast.success('Delete Successfully');
+        }
+      });
+    fetch(`http://localhost:5000/advertises/${id}`, {
       method: 'DELETE',
       headers: {
         'content-type': 'application/json',
@@ -51,8 +63,8 @@ const PhoneSellingList = () => {
             </tr>
           </thead>
           <tbody>
-            {phones.map((phone, index) => (
-              <tr>
+            {cellPhones.map((phone, index) => (
+              <tr key={phone._id}>
                 <th>
                   <button
                     onClick={() => handleDeleteProduct(phone._id)}

@@ -9,7 +9,7 @@ const Categories = () => {
   const [phones, setPhones] = useState([]);
 
   useEffect(() => {
-    fetch('https://rephonex-server.onrender.com/phones')
+    fetch('http://localhost:5000/phones')
       .then((res) => res.json())
       .then((data) => {
         setPhones(data);
@@ -17,7 +17,7 @@ const Categories = () => {
   }, [phones]);
 
   const filterCategory = phones.filter(
-    (phone) => phone.category_id === category.category_id
+    (phone) => phone?.category_id === category.category_id
   );
 
   return (
