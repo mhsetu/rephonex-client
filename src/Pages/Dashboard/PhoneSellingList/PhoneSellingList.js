@@ -19,7 +19,7 @@ const PhoneSellingList = () => {
   console.log(cellPhones);
 
   const handleDeleteProduct = (id) => {
-    fetch(`http://localhost:5000/phones/${id}`, {
+    fetch(`https://rephonex-server.onrender.com/phones/${id}`, {
       method: 'DELETE',
       headers: {
         'content-type': 'application/json',
@@ -32,7 +32,7 @@ const PhoneSellingList = () => {
           toast.success('Delete Successfully');
         }
       });
-    fetch(`http://localhost:5000/advertises/${id}`, {
+    fetch(`https://rephonex-server.onrender.com/advertises/${id}`, {
       method: 'DELETE',
       headers: {
         'content-type': 'application/json',

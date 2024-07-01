@@ -9,7 +9,7 @@ const Categories = () => {
   const [phones, setPhones] = useState([]);
 
   useEffect(() => {
-    fetch('http://localhost:5000/phones')
+    fetch('https://rephonex-server.onrender.com/phones')
       .then((res) => res.json())
       .then((data) => {
         setPhones(data);

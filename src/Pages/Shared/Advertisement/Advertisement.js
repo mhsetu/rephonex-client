@@ -7,7 +7,7 @@ const Advertisement = () => {
   const { advertise, setAdvertise } = useContext(GlobalContext);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/advertise`)
+    fetch(`https://rephonex-server.onrender.com/advertise`)
       .then((res) => res.json())
       .then((data) => setAdvertise(data));
   }, [setAdvertise]);

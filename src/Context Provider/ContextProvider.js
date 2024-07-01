@@ -69,10 +69,10 @@ const ContextProvider = ({ children }) => {
   const handleAdvertise = (id) => {
     // const { _id } = value;
 
-    fetch(`http://localhost:5000/phones/${id}`)
+    fetch(`https://rephonex-server.onrender.com/phones/${id}`)
       .then((res) => res.json())
       .then((data) => {
-        fetch(`http://localhost:5000/advertises`, {
+        fetch(`https://rephonex-server.onrender.com/advertises`, {
           method: 'POST',
           headers: {
             'content-type': 'application/json',
@@ -107,7 +107,8 @@ const ContextProvider = ({ children }) => {
     handleAdvertise,
     advertise,
     setAdvertise,
-    cellPhones, setCellPhones
+    cellPhones,
+    setCellPhones,
   };
   return (
     <GlobalContext.Provider value={info}>{children}</GlobalContext.Provider>
