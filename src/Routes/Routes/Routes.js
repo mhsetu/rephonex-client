@@ -39,13 +39,13 @@ export const router = createBrowserRouter([
         path: '/details/:id',
         element: <PhoneDetails></PhoneDetails>,
         loader: ({ params }) =>
-          fetch(`https://rephonex-server.onrender.com/phones/${params.id}`),
+          fetch(`https://rephonex-server.vercel.app/phones/${params.id}`),
       },
       {
         path: '/category/:id',
         element: <Categories></Categories>,
         loader: ({ params }) =>
-          fetch(`https://rephonex-server.onrender.com/category/${params.id}`),
+          fetch(`https://rephonex-server.vercel.app/category/${params.id}`),
       },
     ],
   },
@@ -60,7 +60,7 @@ export const router = createBrowserRouter([
             <AllUsers></AllUsers>
           </AdminRoute>
         ),
-        loader: () => fetch(`https://rephonex-server.onrender.com/users`),
+        loader: () => fetch(`https://rephonex-server.vercel.app/users`),
       },
       {
         path: '/dashboard/phonesOnSale',

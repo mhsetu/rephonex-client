@@ -7,11 +7,10 @@ import useSales from '../../../hooks/useSales';
 import { Toaster } from 'react-hot-toast';
 
 const PhoneDetails = () => {
-  const { user, handleAdvertise, phoneBookingList, cellPhones } =
-    useContext(GlobalContext);
+  const { user, handleAdvertise } = useContext(GlobalContext);
   const [phones, setPhones] = useState([]);
   // console.log(validUser);
-  console.log(phoneBookingList);
+  // console.log(phoneBookingList);
   const [isCustomer] = useCustomer(user?.email);
   const [isSale] = useSales(user?.email);
   const {
@@ -31,7 +30,7 @@ const PhoneDetails = () => {
 
   // console.log(cellPhones);
   useEffect(() => {
-    fetch(`https://rephonex-server.onrender.com/phone?email=${user?.email}`, {
+    fetch(`https://rephonex-server.vercel.app/phone?email=${user?.email}`, {
       headers: {
         'content-type': 'application/json',
       },
@@ -99,6 +98,7 @@ const PhoneDetails = () => {
                 (phone) =>
                   phone?._id === _id && (
                     <button
+                      key={phone._id}
                       onClick={() => handleAdvertise(_id)}
                       className='btn btn-primary mt-8 px-12'
                     >

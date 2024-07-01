@@ -11,7 +11,7 @@ const PostModal = () => {
 
       {/* Put this part before </body> tag */}
       <input type='checkbox' id='post' className='modal-toggle' />
-      <div className='modal '>
+      <div className='modal modal-backdrop'>
         <div className='modal-box w-11/12 max-w-5xl'>
           <label
             htmlFor='post'

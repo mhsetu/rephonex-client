@@ -7,7 +7,7 @@ const PhoneSellingList = () => {
   const { user, cellPhones, setCellPhones } = useContext(GlobalContext);
 
   useEffect(() => {
-    fetch(`https://rephonex-server.onrender.com/phone?email=${user?.email}`, {
+    fetch(`https://rephonex-server.vercel.app/phone?email=${user?.email}`, {
       headers: {
         'content-type': 'application/json',
       },
@@ -19,7 +19,7 @@ const PhoneSellingList = () => {
   console.log(cellPhones);
 
   const handleDeleteProduct = (id) => {
-    fetch(`https://rephonex-server.onrender.com/phones/${id}`, {
+    fetch(`https://rephonex-server.vercel.app/phones/${id}`, {
       method: 'DELETE',
       headers: {
         'content-type': 'application/json',
@@ -32,7 +32,7 @@ const PhoneSellingList = () => {
           toast.success('Delete Successfully');
         }
       });
-    fetch(`https://rephonex-server.onrender.com/advertises/${id}`, {
+    fetch(`https://rephonex-server.vercel.app/advertises/${id}`, {
       method: 'DELETE',
       headers: {
         'content-type': 'application/json',

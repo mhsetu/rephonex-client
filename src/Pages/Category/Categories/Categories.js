@@ -9,7 +9,7 @@ const Categories = () => {
   const [phones, setPhones] = useState([]);
 
   useEffect(() => {
-    fetch('https://rephonex-server.onrender.com/phones')
+    fetch('https://rephonex-server.vercel.app/phones')
       .then((res) => res.json())
       .then((data) => {
         setPhones(data);

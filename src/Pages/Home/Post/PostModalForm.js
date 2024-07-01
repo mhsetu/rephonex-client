@@ -13,7 +13,7 @@ const PostModalForm = () => {
   // const [reset, setReset] = useState(null);
   const { user } = useContext(GlobalContext);
   useEffect(() => {
-    fetch(`https://rephonex-server.onrender.com/category`)
+    fetch(`https://rephonex-server.vercel.app/category`)
       .then((res) => res.json())
       .then((data) => setCategory(data));
   }, [category]);
@@ -73,7 +73,7 @@ const PostModalForm = () => {
       description
     );
 
-    fetch(`https://rephonex-server.onrender.com/phones`, {
+    fetch(`https://rephonex-server.vercel.app/phones`, {
       method: 'POST',
       headers: {
         'content-type': 'application/json',
@@ -254,6 +254,7 @@ const PostModalForm = () => {
               <div className='relative mt-2.5'>
                 <div className='form-control w-full max-w-xs'>
                   <select name='category' className='select select-bordered'>
+                    <option disabled>Choose One</option>
                     {category.map((list) => (
                       <option value={list.category_id} key={list._id}>
                         {list.category_name}
@@ -326,8 +327,9 @@ const PostModalForm = () => {
               </div>
             </div>
           </div>
-          <div className=' mt-10'>
+          <div className=' mt-10 modal-action'>
             <input
+              htmlFor='post'
               type='submit'
               value='Submit'
               className='btn block w-full rounded-md bg-indigo-600 px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600'

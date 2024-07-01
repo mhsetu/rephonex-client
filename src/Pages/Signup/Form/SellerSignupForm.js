@@ -12,7 +12,7 @@ const SellerSignupForm = () => {
       email,
       person,
     };
-    fetch(`https://rephonex-server.onrender.com/User`, {
+    fetch(`https://rephonex-server.vercel.app/User`, {
       method: 'POST',
       headers: {
         'content-type': 'application/json',
@@ -26,7 +26,7 @@ const SellerSignupForm = () => {
       email,
       person: 'Customer',
     };
-    fetch(`https://rephonex-server.onrender.com/User`, {
+    fetch(`https://rephonex-server.vercel.app/User`, {
       method: 'POST',
       headers: {
         'content-type': 'application/json',

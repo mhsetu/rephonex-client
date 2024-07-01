@@ -22,7 +22,7 @@ const Home = () => {
               : 'hidden'
           }`}
         >
-          {isSale && (
+          {validUser[0]?.person === 'Seller' && (
             <div className='mx-8 mt-8 mb-14'>
               <Post></Post>
             </div>

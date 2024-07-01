@@ -26,7 +26,7 @@ const ContextProvider = ({ children }) => {
   const [cellPhones, setCellPhones] = useState([]);
 
   useEffect(() => {
-    fetch(`https://rephonex-server.onrender.com/users?email=${user?.email}`, {
+    fetch(`https://rephonex-server.vercel.app/users?email=${user?.email}`, {
       headers: {
         'content-type': 'application/json',
       },
@@ -69,10 +69,10 @@ const ContextProvider = ({ children }) => {
   const handleAdvertise = (id) => {
     // const { _id } = value;
 
-    fetch(`https://rephonex-server.onrender.com/phones/${id}`)
+    fetch(`https://rephonex-server.vercel.app/phones/${id}`)
       .then((res) => res.json())
       .then((data) => {
-        fetch(`https://rephonex-server.onrender.com/advertises`, {
+        fetch(`https://rephonex-server.vercel.app/advertises`, {
           method: 'POST',
           headers: {
             'content-type': 'application/json',

@@ -12,7 +12,7 @@ const AllUsers = () => {
 
   const handleMakeAdmin = (id) => {
     console.log(id);
-    fetch(`https://rephonex-server.onrender.com/users/admin/${id}`, {
+    fetch(`https://rephonex-server.vercel.app/users/admin/${id}`, {
       method: 'PUT',
       headers: {
         'content-type': 'application/json',

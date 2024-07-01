@@ -3,7 +3,7 @@ const useCustomer = (email) => {
   const [isCustomer, setIsCustomer] = useState(true);
   const [isCustomerLoading, setIsCustomerLoading] = useState(true);
   useEffect(() => {
-    fetch(`https://rephonex-server.onrender.com/users/customer/${email}`)
+    fetch(`https://rephonex-server.vercel.app/users/customer/${email}`)
       .then((res) => res.json())
       .then((data) => {
         console.log(data);

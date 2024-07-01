@@ -33,7 +33,7 @@ const BookModal = ({ id, phone_name }) => {
       message,
     };
     console.log(customerInfo);
-    fetch(`https://rephonex-server.onrender.com/meeting`, {
+    fetch(`https://rephonex-server.vercel.app/meeting`, {
       method: 'POST',
       headers: {
         'content-type': 'application/json',

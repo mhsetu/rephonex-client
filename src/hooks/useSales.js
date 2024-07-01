@@ -3,7 +3,7 @@ const useSales = (email) => {
   const [isSale, setIsSale] = useState(true);
   const [isSaleLoading, setIsSaleLoading] = useState(true);
   useEffect(() => {
-    fetch(`https://rephonex-server.onrender.com/users/sales/${email}`)
+    fetch(`https://rephonex-server.vercel.app/users/sales/${email}`)
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
