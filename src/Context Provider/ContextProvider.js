@@ -24,6 +24,13 @@ const ContextProvider = ({ children }) => {
   const [validUser, setValidUser] = useState([]);
   const [advertise, setAdvertise] = useState([]);
   const [cellPhones, setCellPhones] = useState([]);
+  const [menuItems, setMenuItems] = useState([]);
+  const [bookingId, setBookingId] = useState({});
+  useEffect(() => {
+    fetch(`https://rephonex-server.vercel.app/category`)
+      .then((res) => res.json())
+      .then((data) => setMenuItems(data));
+  }, [menuItems]);
 
   useEffect(() => {
     fetch(`https://rephonex-server.vercel.app/users?email=${user?.email}`, {
@@ -109,6 +116,9 @@ const ContextProvider = ({ children }) => {
     setAdvertise,
     cellPhones,
     setCellPhones,
+    menuItems,
+    bookingId,
+    setBookingId,
   };
   return (
     <GlobalContext.Provider value={info}>{children}</GlobalContext.Provider>

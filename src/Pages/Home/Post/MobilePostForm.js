@@ -6,7 +6,7 @@ import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { DateField } from '@mui/x-date-pickers/DateField';
 import { GlobalContext } from '../../../Context Provider/ContextProvider';
 
-const PostModalForm = () => {
+const MobilePostForm = () => {
   const [category, setCategory] = useState([]);
 
   // const [value, setValue] = useState(dayjs(new Date()));
@@ -95,13 +95,13 @@ const PostModalForm = () => {
     <div>
       <div className='  px-6 py-24 sm:py-32 lg:px-8'>
         <div className='mx-auto max-w-2xl text-center'>
-          <h2 className='text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl'>
+          <h2 className='text-2xl font-bold tracking-tight text-gray-900 sm:text-4xl'>
             Phone & Personal Details
           </h2>
         </div>
         <form
           onSubmit={handleSubmit}
-          className='mx-auto mt-16 max-w-xl sm:mt-20'
+          className='mx-auto mt-16 max-w-sm sm:mt-20'
         >
           <div className='grid grid-cols-1 gap-x-8 gap-y-6 md:grid-cols-2'>
             <div className='lg:block md:block col-span-2'>
@@ -330,7 +330,6 @@ const PostModalForm = () => {
           </div>
           <div className='mt-10 modal-action'>
             <button
-              htmlFor='post'
               type='submit'
               // value='Submit'
               className='btn block w-full rounded-md bg-indigo-600 px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600'
@@ -344,4 +343,4 @@ const PostModalForm = () => {
   );
 };
 
-export default PostModalForm;
+export default MobilePostForm;

@@ -1,14 +1,13 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { useLoaderData } from 'react-router-dom';
-import { GlobalContext } from '../../../Context Provider/ContextProvider';
+
 import toast, { Toaster } from 'react-hot-toast';
 
 const AllUsers = () => {
   const allUser = useLoaderData();
-  const { validUser } = useContext(GlobalContext);
 
-  console.log(allUser);
-  console.log(validUser);
+  // console.log(allUser);
+  // console.log(validUser);
 
   const handleMakeAdmin = (id) => {
     console.log(id);

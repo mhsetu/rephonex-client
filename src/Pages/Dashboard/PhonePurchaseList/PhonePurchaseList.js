@@ -16,7 +16,7 @@ const PhonePurchaseList = () => {
       .then((data) => setPhoneBookingList(data));
   }, [user?.email, setPhoneBookingList]);
 
-  console.log(phoneBookingList);
+  // console.log(phoneBookingList);
 
   return (
     <div className='mx-8 mt-8'>

@@ -9,11 +9,11 @@ import Footer from '../Pages/Shared/Footer/Footer';
 
 const DashboardLayout = () => {
   const { user } = useContext(GlobalContext);
-  console.log(user?.email);
+  // console.log(user?.email);
   const [isAdmin] = useAdmin(user?.email);
   const [isSale] = useSales(user?.email);
   const [isCustomer] = useCustomer(user?.email);
-  console.log(isAdmin);
+  // console.log(isAdmin);
   return (
     <div>
       <Header></Header>

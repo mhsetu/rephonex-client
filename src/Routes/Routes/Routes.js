@@ -13,6 +13,9 @@ import AllUsers from '../../Pages/Dashboard/AllUsers/AllUsers';
 import AdminRoute from '../AdminRoute/AdminRoute';
 
 import Blogs from '../../Pages/Blogs/Blogs';
+import PrivateRoute from '../PrivateRoute/PrivateRoute';
+import MobilePostForm from '../../Pages/Home/Post/MobilePostForm';
+import BookingForm from '../../Pages/Home/Phones/Booking/BookingForm';
 
 export const router = createBrowserRouter([
   {
@@ -32,8 +35,20 @@ export const router = createBrowserRouter([
         element: <Signup></Signup>,
       },
       {
+        path: '/mobileForm',
+        element: <MobilePostForm></MobilePostForm>,
+      },
+      {
+        path: '/bookingForm',
+        element: <BookingForm></BookingForm>,
+      },
+      {
         path: '/blogs',
-        element: <Blogs></Blogs>,
+        element: (
+          <PrivateRoute>
+            <Blogs></Blogs>
+          </PrivateRoute>
+        ),
       },
       {
         path: '/details/:id',

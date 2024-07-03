@@ -16,7 +16,7 @@ const PhoneSellingList = () => {
       .then((data) => setCellPhones(data));
   }, [user?.email, setCellPhones]);
 
-  console.log(cellPhones);
+  // console.log(cellPhones);
 
   const handleDeleteProduct = (id) => {
     fetch(`https://rephonex-server.vercel.app/phones/${id}`, {

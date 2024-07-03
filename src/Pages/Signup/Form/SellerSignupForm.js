@@ -116,7 +116,7 @@ const SellerSignupForm = () => {
                     name='name'
                     type='text'
                     placeholder='Your Name'
-                    className='input input-bordered w-1/2 mb-8 '
+                    className='input input-bordered lg:w-1/2 md:w-1/2  w-full mb-8 '
                   />
                 </div>
               </div>
@@ -129,7 +129,7 @@ const SellerSignupForm = () => {
                     name='image'
                     type='text'
                     placeholder='Your Photo URL'
-                    className='input input-bordered w-1/2 mb-8 '
+                    className='input input-bordered lg:w-1/2 md:w-1/2  w-full mb-8 '
                   />
                 </div>
               </div>
@@ -143,7 +143,7 @@ const SellerSignupForm = () => {
                     name='email'
                     type='email'
                     placeholder='Your Email'
-                    className='input input-bordered w-1/2 mb-8 '
+                    className='input input-bordered lg:w-1/2 md:w-1/2  w-full mb-8 '
                   />
                 </div>
               </div>
@@ -156,7 +156,7 @@ const SellerSignupForm = () => {
                     name='password'
                     type='password'
                     placeholder='Your Password'
-                    className='input input-bordered w-1/2 mb-8 '
+                    className='input input-bordered lg:w-1/2 md:w-1/2 w-full mb-8 '
                   />
                 </div>
               </div>

@@ -1,5 +1,6 @@
 import React from 'react';
 import BookModal from './BookModal';
+import BookingForm from './BookingForm';
 
 const Booking = ({ id,phone_name }) => {
   return (
@@ -21,6 +22,7 @@ const Booking = ({ id,phone_name }) => {
           </label>
           <div>
             <BookModal id={id} phone_name={phone_name}></BookModal>
+           
           </div>
         </div>
       </div>

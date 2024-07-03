@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
 import { GlobalContext } from '../../../Context Provider/ContextProvider';
 import Booking from './Booking/Booking';
 import useCustomer from '../../../hooks/useCustomer';
@@ -7,7 +7,7 @@ import useSales from '../../../hooks/useSales';
 import { Toaster } from 'react-hot-toast';
 
 const PhoneDetails = () => {
-  const { user, handleAdvertise } = useContext(GlobalContext);
+  const { user, handleAdvertise, setBookingId } = useContext(GlobalContext);
   const [phones, setPhones] = useState([]);
   // console.log(validUser);
   // console.log(phoneBookingList);
@@ -40,7 +40,7 @@ const PhoneDetails = () => {
   }, [user?.email, setPhones]);
 
   // const phone = cellPhones.map((phone) => phone.email === user?.email);
-  console.log(phones);
+  // console.log(phones);
   return (
     <div>
       <div className='bg-white mt-5'>
@@ -89,9 +89,22 @@ const PhoneDetails = () => {
             </div>
 
             {isCustomer && (
-              <label htmlFor='booking' className='btn btn-primary mt-8 px-12'>
+              <label
+                htmlFor='booking'
+                className='btn btn-primary lg:inline-flex md:inline-flex hidden mt-8 px-12'
+              >
                 Book Now
               </label>
+            )}
+            {isCustomer && (
+              <Link to='/bookingForm'>
+                <button
+                  onClick={() => setBookingId({ _id, phone_name })}
+                  className='btn btn-primary inline-flex md:hidden lg:hidden mt-8 px-12'
+                >
+                  Book Now
+                </button>
+              </Link>
             )}
             {isSale &&
               phones.map(

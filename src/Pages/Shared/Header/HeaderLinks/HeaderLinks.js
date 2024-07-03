@@ -1,14 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { GlobalContext } from '../../../../Context Provider/ContextProvider';
 
 const HeaderLinks = () => {
   // const [open, setOpen] = useState(false);
-  const [menuItems, setMenuItems] = useState([]);
-  useEffect(() => {
-    fetch(`https://rephonex-server.vercel.app/category`)
-      .then((res) => res.json())
-      .then((data) => setMenuItems(data));
-  }, [menuItems]);
+  const { menuItems } = useContext(GlobalContext);
+
   //   console.log(menuItems);
 
   return (
