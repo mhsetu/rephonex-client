@@ -32,7 +32,7 @@ const SellerSignupForm = () => {
         'content-type': 'application/json',
       },
       body: JSON.stringify(userInfo),
-    });
+    })
   };
 
   const googleLogIn = () => {
